@@ -1,6 +1,6 @@
 
 <?php
-include ('../Controllers/Registration-Contoller.php');
+include ('../Controllers/Registration-Controller.php');
 include ('../Models/database.php');
 ?>
 <html>
@@ -9,7 +9,7 @@ include ('../Models/database.php');
 </head>
 <body>
     <h2>Registration</h2>
-    <form method="POST" action="/Webtech_Spring_25-26_F_Project/Controllers/Registration-Contoller.php">
+    <form method="POST" action="/Webtech_Spring_25-26_F_Project/Controllers/Registration-Controller.php">
         <label for ="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Name"><br><br>
 
@@ -29,7 +29,7 @@ include ('../Models/database.php');
             Author
     </label> <br><br>
 
-    <button type="submit">Register</button>
+    <button type="submit" name = "register" value="sign up">Register</button>
 
 </form>
 </body>

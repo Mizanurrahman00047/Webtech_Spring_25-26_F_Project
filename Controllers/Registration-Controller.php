@@ -25,6 +25,8 @@ if(empty($email)){
 elseif(!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)){
     echo "Invalid email format";
 }
+
+
 if(empty($password)){
     echo "Password required";
 }
@@ -32,6 +34,11 @@ elseif(strlen($password) < 8 || !preg_match('/[A-Za-z]/', $password) || !preg_ma
     echo "Password must be at least 8 characters and contain at least one capital letter and one number and one special character";
 }
 else{
+    if (isset($_POST['register'])) {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        // Registration logic here
     echo "Registration successful";
     //$hash = password_hash($password, PASSWORD_DEFAULT);
 }
