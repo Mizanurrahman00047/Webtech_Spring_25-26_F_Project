@@ -1,7 +1,6 @@
 
 <?php
-include ('../Controllers/Registration-Controller.php');
-include ('../Models/database.php');
+require_once('../Controllers/Registration-Controller.php');
 ?>
 <html>
 <head>
@@ -9,7 +8,7 @@ include ('../Models/database.php');
 </head>
 <body>
     <h2>Registration</h2>
-    <form method="POST" action="/Webtech_Spring_25-26_F_Project/Controllers/Registration-Controller.php">
+    <form method="POST" action="../Controllers/Registration-Controller.php">
         <label for ="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Name"><br><br>
 

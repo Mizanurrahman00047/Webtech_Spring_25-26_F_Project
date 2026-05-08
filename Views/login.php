@@ -21,7 +21,7 @@
         Remember Me
     </label>
 
-    <button type="submit">Login</button>
+    <button type="submit" name="login" value="login">Login</button>
 
 </form>
 

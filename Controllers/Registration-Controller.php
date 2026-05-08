@@ -1,75 +1,77 @@
 
 <?php
 
-$name = "";
-$email = "";
-$password = "";
+require_once('../Models/database.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+if (isset($_POST["register"])) {
 
+    $name = trim($_POST["name"]);
+    $email = trim($_POST["email"]);
+    $password = trim($_POST["password"]);
+    $selectedRole = $_POST["role"];
 
+    $hasError = false;
 
-if(empty($name)){
-    echo "Name required";
-}
-elseif(!empty($name) && strlen($name) < 3){
-    echo "Name must be at least 3 characters";   
-}
-
-if(empty($email)){
-    echo "Email required";
-}
-elseif(!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)){
-    echo "Invalid email format";
-}
-
-
-if(empty($password)){
-    echo "Password required";
-}
-elseif(strlen($password) < 8 || !preg_match('/[A-Za-z]/', $password) || !preg_match('/\d/', $password) || !preg_match('/[!@#$%^&*()-+]/', $password)){
-    echo "Password must be at least 8 characters and contain at least one capital letter and one number and one special character";
-}
-else{
-    if (isset($_POST['register'])) {
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        // Registration logic here
-    echo "Registration successful";
-    //$hash = password_hash($password, PASSWORD_DEFAULT);
-}
-
-}
-/*
-if(empty($errors)){
-
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-
-    $role = 'reader';
-    $pending_author = 0;
-
-    if($selectedRole == 'author'){
-        $pending_author = 1;
+    if (empty($name)) {
+        echo "Name required";
+        $hasError = true;
     }
 
-    $stmt = $pdo->prepare("
-        INSERT INTO users
-        (name,email,password_hash,role,pending_author,created_at)
-        VALUES (?,?,?,?,?,NOW())
-    ");
+    elseif (strlen($name) < 3) {
+        echo "Name must be at least 3 characters";
+        $hasError = true;
+    }
 
-    $stmt->execute([
-        $name,
-        $email,
-        $hash,
-        $role,
-        $pending_author
-    ]);
+
+    elseif (empty($email)) {
+        echo "Email required";
+        $hasError = true;
+    }
+
+    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format";
+        $hasError = true;
+    }
+
+  
+    elseif (empty($password)) {
+        echo "Password required";
+        $hasError = true;
+    }
+
+    elseif (
+        strlen($password) < 8 ||
+        !preg_match('/[A-Za-z]/', $password) ||
+        !preg_match('/\d/', $password) ||
+        !preg_match('/[!@#$%^&*()-+]/', $password)
+    ) {
+
+        echo "Password must be at least 8 characters and contain letters, numbers and special characters";
+
+        $hasError = true;
+    }
+
+    
+    if ($hasError == false) {
+
+
+        $role = "reader";
+        $pending_author = 0;
+
+        if ($selectedRole == "author") {
+            $pending_author = 1;
+        }
+
+    
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        registration(
+            $name,
+            $email,
+            $hashedPassword,
+            $role,
+            $pending_author
+        );
+    }
 }
-*/
-
 ?>
