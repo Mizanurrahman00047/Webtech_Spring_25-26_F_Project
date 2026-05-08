@@ -1,0 +1,15 @@
+
+<?php
+
+    $db_server = 'localhost';
+    $db_user = 'root';
+    $db_password = '';
+    $db_name = 'blog_news_database';
+    $conn = mysqli_connect($db_server, $db_user, $db_password, $db_name);
+
+    if ($conn) {
+        echo "Connected to database successfully!";
+    } else {
+        echo "Failed to connect to database: ";
+    }
+?>
