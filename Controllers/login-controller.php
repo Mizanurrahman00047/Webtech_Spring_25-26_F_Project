@@ -1,6 +1,5 @@
 
 <?php
-
 session_start();
 
 require_once('../Models/database.php');
@@ -48,6 +47,7 @@ if(isset($_POST['login'])){
             )){
 
                 // EXACT REQUIREMENT
+                
 
                 $_SESSION['user_id'] = $user['id'];
                 $_SESSION['name'] = $user['name'];
@@ -83,6 +83,7 @@ if(isset($_POST['login'])){
             else{
 
                 echo "Incorrect Password";
+                header("");
             }
         }
 
