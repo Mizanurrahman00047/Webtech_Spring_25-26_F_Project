@@ -1,15 +1,20 @@
 
-<?php
-require_once('../Controllers/Registration-Controller.php');
-?>
+
 <html>
 <head>
     <title>Registration</title>
+     <link rel="stylesheet" href="design/design.css">
 </head>
 <body>
-    <h2>Registration</h2>
-    <form method="POST" action="../Controllers/Registration-Controller.php">
-        <label for ="name">Name:</label>
+    <div class="container">
+        <header class="page-header">
+            <h1>Member Registration</h1>
+            <p>Create an account to access exclusive content and manage your profile.</p>
+        </header>
+
+    <form class="form-card" method="POST" action="../Controllers/Registration-Controller.php">
+    <div class="form-group">    
+    <label for ="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="name"><br><br>
 
         <label for="email">Email:</label>
@@ -27,12 +32,13 @@ require_once('../Controllers/Registration-Controller.php');
         <input type="radio" name="role" value="author">
             Author
     </label> <br><br>
+    </div>
 
-    <button type="submit" name = "register" value="sign up">Register</button>
+    <button class="button-primary" type="submit" name = "register" value="sign up">Register</button>
     <br><br>
-
+    <p class="small-text">
     <a href="../Views/login.php">Already have an account? Login here.</a>
-
+    </p>
 </form>
 </body>
 </html>

@@ -23,6 +23,7 @@ $users = getAllUsers();
 <head>
 
     <title>Admin Users</title>
+    <link rel="stylesheet" href="../Views/design/design.css">
 
 </head>
 
