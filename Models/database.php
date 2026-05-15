@@ -30,7 +30,7 @@ function connectDatabase(){
 function registration(
     $name,
     $email,
-    $hashedpassword,
+    $hashedPassword,
     $role,
     $pending_author
 ){
@@ -49,7 +49,7 @@ function registration(
         "ssssi",
         $name,
         $email,
-        $hashedpassword,
+        $hashedPassword,
         $role,
         $pending_author,
         
@@ -110,120 +110,6 @@ function updateRememberToken(
     $stmt->execute();
 }
 
-
-
-
-
-function updateProfile(
-    $id,
-    $bio,
-    $profile_pic_path,
-    $social_links
-){
-
-    $connection = connectDatabase();
-
-    $sql = "UPDATE user_info
-            SET bio = ?,
-                profile_pic_path = ?,
-                social_links = ?
-            WHERE id = ?";
-
-    $stmt = $connection->prepare($sql);
-
-    $stmt->bind_param(
-        "sssi",
-        $bio,
-        $profile_pic_path,
-        $social_links,
-        $id
-    );
-
-    if($stmt->execute()){
-
-        echo "Profile Updated";
-    }
-
-    else{
-
-        echo "Update Failed";
-    }
-}
-
-function getAuthor($id){
-
-    $connection = connectDatabase();
-
-    $sql = "SELECT *
-            FROM user_info
-            WHERE id = ?";
-
-    $stmt = $connection->prepare($sql);
-
-    $stmt->bind_param(
-        "i",
-        $id
-    );
-
-    $stmt->execute();
-
-    $result = $stmt->get_result();
-
-    return $result->fetch_assoc();
-}
-
-
-function getAuthorArticles($id){
-
-    $connection = connectDatabase();
-
-    $sql = "SELECT *
-            FROM articles
-            WHERE author_id = ?
-            AND status = 'published'
-            ORDER BY created_at DESC";
-
-    $stmt = $connection->prepare($sql);
-
-    $stmt->bind_param(
-        "i",
-        $id
-    );
-
-    $stmt->execute();
-
-    return $stmt->get_result();
-}
-
-function getAllUsers(){
-
-    $connection = connectDatabase();
-
-    $sql = "SELECT *
-            FROM user_info";
-
-    return $connection->query($sql);
-}
-
-
-function promoteAuthor($id){
-
-    $connection = connectDatabase();
-
-    $sql = "UPDATE user_info
-            SET role = 'author',
-                pending_author = 0
-            WHERE id = ?";
-
-    $stmt = $connection->prepare($sql);
-
-    $stmt->bind_param(
-        "i",
-        $id
-    );
-
-    return $stmt->execute();
-}
 
 function getRememberUsers(){
 

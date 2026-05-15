@@ -39,6 +39,9 @@ if(isset($_POST['login'])){
 
             $user = $result->fetch_assoc();
 
+            // testing purpose only
+            
+
             // PASSWORD VERIFY REQUIRED
 
             if(password_verify(
@@ -83,7 +86,7 @@ if(isset($_POST['login'])){
             else{
 
                 echo "Incorrect Password";
-                header("");
+                header("Location: ../views/author-profile.php");
             }
         }
 

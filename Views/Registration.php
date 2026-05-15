@@ -17,7 +17,7 @@ require_once('../Controllers/Registration-Controller.php');
 
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" placeholder="password"><br><br>
-
+    <label for="role">Select Role:</label><br>
     <label>
         <input type="radio" name="role" value="reader" checked>
             Reader
@@ -29,6 +29,9 @@ require_once('../Controllers/Registration-Controller.php');
     </label> <br><br>
 
     <button type="submit" name = "register" value="sign up">Register</button>
+    <br><br>
+
+    <a href="../Views/login.php">Already have an account? Login here.</a>
 
 </form>
 </body>
