@@ -18,11 +18,6 @@ if(isset($_POST['login'])){
         $hasError = true;
     }
 
-    elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-
-        echo "Invalid email format";
-        $hasError = true;
-    }
 
     
     elseif(empty($password)){
@@ -38,10 +33,7 @@ if(isset($_POST['login'])){
         if($result->num_rows > 0){
 
             $user = $result->fetch_assoc();
-
-            // testing purpose only
             
-
             // PASSWORD VERIFY REQUIRED
 
             if(password_verify(
@@ -79,21 +71,30 @@ if(isset($_POST['login'])){
                         "/"
                     );
                 }
+                if ($user['role'] == 'admin'){
 
-                echo "Login Successful";
+                    header("Location: ../Views/admin-users.php");
+                    exit();
+                }
+               
+                elseif ($user['role'] == 'author'){
+                    header("Location: ../Views/author-profile.php");
+                    exit();
+                }
+                else{
+                    echo "reader";
+                }
             }
-
             else{
 
                 echo "Incorrect Password";
-                header("Location: ../views/author-profile.php");
             }
         }
-
         else{
 
             echo "User Not Found";
         }
     }
 }
+
 ?>

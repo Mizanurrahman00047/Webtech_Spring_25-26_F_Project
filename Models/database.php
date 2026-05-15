@@ -122,4 +122,96 @@ function getRememberUsers(){
     return $connection->query($sql);
 }
 
+function getAllUsers(){
+
+    $connection = connectDatabase();
+
+    $sql = "SELECT *
+            FROM user_info";
+
+    return $connection->query($sql);
+}
+
+
+function promoteAuthor($id){
+
+    $connection = connectDatabase();
+
+    $sql = "UPDATE user_info
+            SET role = 'author',
+                pending_author = 0
+            WHERE id = ?";
+
+    $stmt = $connection->prepare($sql);
+
+    $stmt->bind_param(
+        "i",
+        $id
+    );
+
+    return $stmt->execute();
+}
+
+function updateProfile(
+    $user_id,
+    $bio,
+    $profile_pic_path,
+    $social_links
+){
+
+    $connection = connectDatabase();
+
+    $sql = "UPDATE user_info
+            SET bio = ?,
+                profile_pic_path = ?,
+                social_links = ?
+            WHERE id = ?";
+
+    $stmt = $connection->prepare($sql);
+
+    $stmt->bind_param(
+
+        "sssi",
+
+        $bio,
+        $profile_pic_path,
+        $social_links,
+        $user_id
+    );
+
+    if($stmt->execute()){
+
+        echo "Profile Updated";
+        header("Location: ../Views/author-profile.php");
+        exit();
+    }
+
+    else{
+
+        echo "Update Failed";
+    }
+}
+
+function getAuthor($id){
+
+    $connection = connectDatabase();
+
+    $sql = "SELECT *
+            FROM user_info
+            WHERE id = ?";
+
+    $stmt = $connection->prepare($sql);
+
+    $stmt->bind_param(
+        "i",
+        $id
+    );
+
+    $stmt->execute();
+
+    $result = $stmt->get_result();
+
+    return $result->fetch_assoc();
+}
+
 ?>

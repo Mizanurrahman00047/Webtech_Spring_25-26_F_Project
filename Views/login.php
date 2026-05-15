@@ -25,7 +25,9 @@
     <br><br>
     <a href="../Views/Registration.php">Don't have an account? Register here.</a>
     <br><br>
-
+    <a href="../Views/admin-login.php">Admin Login</a>
+    <br><br>
+    
     <button type="submit" name="login" value="login">Login</button>
 
 </form>

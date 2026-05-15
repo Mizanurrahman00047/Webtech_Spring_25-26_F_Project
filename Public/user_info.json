@@ -1,0 +1,41 @@
+[
+    {
+        "id": "4",
+        "name": "mizan",
+        "email": "mizan123@gmail.com",
+        "password_hash": "$2y$10$2mHYw.DacxPDLxZST5.2Zup.RF.ndUR.O8Au4uwFhNwZt.J5vkbSC",
+        "role": "admin",
+        "pending_author": "",
+        "bio": "",
+        "profile_pic_path": "",
+        "remember_token": null,
+        "social_links": "",
+        "created_at": "0000-00-00 00:00:00"
+    },
+    {
+        "id": "5",
+        "name": "omi",
+        "email": "omi123@gmail.com",
+        "password_hash": "$2y$10$PzCtSYOVapYlp.WsAQ1o0uriqLcCnonPUOpW.m.WLrqGrzTm5\/RdC",
+        "role": "author",
+        "pending_author": "0",
+        "bio": "happy",
+        "profile_pic_path": "1778868092_391719868_882392983460288_6089302021766869230_n.jpg",
+        "remember_token": null,
+        "social_links": "{\"twitter\":\"omi_otw\",\"github\":\"mr.omi\"}",
+        "created_at": "0000-00-00 00:00:00"
+    },
+    {
+        "id": "6",
+        "name": "tonmoy",
+        "email": "tonmoy123@gmail.com",
+        "password_hash": "$2y$10$vKfOo2Jz3nKNavB50G9Il.mPkyqB2imw31fEhqEtLNLEEVlTHdrM2",
+        "role": "reader",
+        "pending_author": "1",
+        "bio": "",
+        "profile_pic_path": "",
+        "remember_token": null,
+        "social_links": "",
+        "created_at": "0000-00-00 00:00:00"
+    }
+]
