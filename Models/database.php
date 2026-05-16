@@ -52,8 +52,7 @@ function registration(
         $hashedPassword,
         $role,
         $pending_author,
-        
-        // $socialLinksJson
+               
     );
 
     if($stmt->execute()){
