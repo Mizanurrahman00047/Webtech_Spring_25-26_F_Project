@@ -3,7 +3,7 @@
 
 session_start();
 
-require_once('../Models/database2.php');
+require_once(__DIR__ . '/../../Models/database2.php');
 
 if(
 

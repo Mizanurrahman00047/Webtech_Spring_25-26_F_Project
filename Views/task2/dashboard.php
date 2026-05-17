@@ -1,7 +1,7 @@
 
 <?php
 
-require_once( "../Controllers/task 2/dashboard-controller.php" );
+require_once(__DIR__ . '/../../Controllers/task 2/dashboard-controller.php');
 
 ?>
 
