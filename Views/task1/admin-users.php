@@ -3,7 +3,10 @@
 
 session_start();
 
-require_once('../Models/database.php');
+require_once('../../Models/database.php');
+require_once('../../Models/database2.php');
+require_once('../../Models/database3.php');
+require_once('../../Models/database4.php');
 
 if(
     !isset($_SESSION['role'])
@@ -32,7 +35,7 @@ $users = getAllUsers();
 <h2>All Users</h2>
 
 <p>
-    <a href="../Controllers/export-users.php" target="_blank">
+    <a href="../Controllers/task 1/export-users.php" target="_blank">
         Export all users to JSON
     </a>
 </p>

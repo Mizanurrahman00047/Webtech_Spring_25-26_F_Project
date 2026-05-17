@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="design/design.css">
+    <link rel="stylesheet" href="../design/design.css">
 </head>
 <body>
 <div class="container">
@@ -13,7 +13,7 @@
         <p>Sign in to access your account and manage your profile.</p>
     </header>
 
-    <form class="form-card" method="POST" action="../Controllers/login-controller.php">
+    <form class="form-card" method="POST" action="../Controllers/task 1/login-controller.php">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
@@ -33,7 +33,7 @@
         <button class="button-primary" type="submit" name="login" value="login">Login</button>
 
         <p class="small-text">
-            <a href="../Views/Registration.php">Don't have an account? Register here.</a>
+            <a href="../Views/task1/registration.php">Don't have an account? Register here.</a>
         </p>
     </form>
 </div>

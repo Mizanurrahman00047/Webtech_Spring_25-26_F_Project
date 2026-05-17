@@ -1,30 +1,7 @@
 
 <?php
 
-function connectDatabase(){
-
-    $db_host = 'localhost';
-    $db_user = 'root';
-    $db_password = '';
-    $db_name = 'blog_news_database';
-
-    $connection = new mysqli(
-        $db_host,
-        $db_user,
-        $db_password,
-        $db_name
-    );
-
-    if($connection->connect_error){
-
-        die(
-            "Could not Connect Database "
-            . $connection->connect_error
-        );
-    }
-
-    return $connection;
-}
+require_once(__DIR__ . '/../database/db.php');
 
 
 function registration(
@@ -37,7 +14,6 @@ function registration(
 
     $connection = connectDatabase();
 
-    //$socialLinksJson = json_encode(['pending_author' => $pending_author]);
 
     $sql = "INSERT INTO user_info
             (name, email, password_hash, role, pending_author)
@@ -51,8 +27,7 @@ function registration(
         $email,
         $hashedPassword,
         $role,
-        $pending_author,
-               
+        $pending_author
     );
 
     if($stmt->execute()){

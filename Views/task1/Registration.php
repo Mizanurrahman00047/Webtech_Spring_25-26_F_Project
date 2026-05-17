@@ -3,7 +3,7 @@
 <html>
 <head>
     <title>Registration</title>
-     <link rel="stylesheet" href="design/design.css">
+     <link rel="stylesheet" href="../design/design.css">
 </head>
 <body>
     <div class="container">
@@ -12,7 +12,7 @@
             <p>Create an account to access exclusive content and manage your profile.</p>
         </header>
 
-    <form class="form-card" method="POST" action="../Controllers/Registration-Controller.php">
+    <form class="form-card" method="POST" action="../Controllers/task 1/Registration-Controller.php">
     <div class="form-group">    
     <label for ="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="name"><br><br>
@@ -37,7 +37,7 @@
     <button class="button-primary" type="submit" name = "register" value="sign up">Register</button>
     <br><br>
     <p class="small-text">
-    <a href="../Views/login.php">Already have an account? Login here.</a>
+    <a href="../Views/task1/login.php">Already have an account? Login here.</a>
     </p>
 </form>
 </body>

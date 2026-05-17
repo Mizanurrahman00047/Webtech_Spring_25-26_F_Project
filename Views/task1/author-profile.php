@@ -2,7 +2,11 @@
 <?php
 
 session_start();
-require_once('../Models/database.php');
+
+require_once('../../Models/database.php');
+require_once('../../Models/database2.php');
+require_once('../../Models/database3.php');
+require_once('../../Models/database4.php');
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
@@ -36,6 +40,7 @@ $github = isset($social['github'])
 <head>
 
     <title>Author Profile</title>
+    <link rel="stylesheet" href="../design/design.css">
 
 </head>
 
@@ -82,7 +87,7 @@ GitHub
 
 </a>
 <br><br>
-<a href="../Views/profile-edit.php">
+<a href="../Views/task1/profile-edit.php">
     Edit Profile
 </a>
 

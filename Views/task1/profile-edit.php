@@ -21,7 +21,7 @@ if(!isset($_SESSION['user_id'])){
 <body>
 
 <form
-action="../Controllers/Profile-Controller.php"
+action="../Controllers/task 1/Profile-Controller.php"
 method="POST"
 enctype="multipart/form-data">
 
