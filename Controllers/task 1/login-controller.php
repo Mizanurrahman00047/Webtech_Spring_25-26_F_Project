@@ -76,16 +76,17 @@ if(isset($_POST['login'])){
                 }
                 if ($user['role'] == 'admin'){
 
-                    header("Location: ../Views/admin-users.php");
+                    header("Location: ../Views/task1/admin-users.php");
                     exit();
                 }
                
                 elseif ($user['role'] == 'author'){
-                    header("Location: ../Views/author-profile.php");
+                    header("Location: ../Views/task2/dashboard.php");
                     exit();
                 }
                 else{
-                    echo "reader";
+                    header("Location: ../Views/task3/homepage.php");
+                    exit();
                 }
             }
             else{

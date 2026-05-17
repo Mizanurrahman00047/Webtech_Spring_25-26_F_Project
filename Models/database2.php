@@ -33,6 +33,18 @@ function getAuthorArticles($author_id){
     return $stmt->get_result();
 }
 
+function getArticleById($id)
+{
+    $connection = connectDatabase();
+
+    $sql = "SELECT * FROM articles WHERE id = ?";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_assoc();
+}
+
+
 function publish_scheduled(){
 
     $connection = connectDatabase();

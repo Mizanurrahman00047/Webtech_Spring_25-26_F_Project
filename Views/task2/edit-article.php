@@ -8,6 +8,7 @@ require_once(__DIR__ . '/../../Models/database2.php');
 require_once(__DIR__ . '/../../Models/database3.php');
 require_once(__DIR__ . '/../../Models/database4.php');
 
+
 $id = $_GET['id'];
 
 $article = getArticleById($id);
