@@ -33,7 +33,7 @@ function registration(
     if($stmt->execute()){
 
         echo "Registration successful";
-        header("Location: ../Views/login.php");
+        header("Location: ../Views/task1/login.php");
     }
 
     else{
@@ -156,7 +156,7 @@ function updateProfile(
     if($stmt->execute()){
 
         echo "Profile Updated";
-        header("Location: ../Views/author-profile.php");
+        header("Location: ../Views/task1/author-profile.php");
         exit();
     }
 

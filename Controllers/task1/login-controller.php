@@ -2,10 +2,10 @@
 <?php
 session_start();
 
-require_once('../Models/database.php');
-require_once('../Models/database2.php');
-require_once('../Models/database3.php');
-require_once('../Models/database4.php');
+require_once(__DIR__ . '/../../Models/database.php');
+require_once(__DIR__ . '/../../Models/database2.php');
+require_once(__DIR__ . '/../../Models/database3.php');
+require_once(__DIR__ . '/../../Models/database4.php');
 
 if(isset($_POST['login'])){
 
@@ -75,17 +75,19 @@ if(isset($_POST['login'])){
                     );
                 }
                 if ($user['role'] == 'admin'){
-
-                    header("Location: ../Views/task1/admin-users.php");
+                    
+                   header("Location: /Webtech_Spring_25-26_F_Project/Views/task1/admin-users.php");
                     exit();
                 }
                
                 elseif ($user['role'] == 'author'){
-                    header("Location: ../Views/task2/dashboard.php");
+                    
+                    header("Location: /Webtech_Spring_25-26_F_Project/Views/task1/author-profile.php");
                     exit();
                 }
                 else{
-                    header("Location: ../Views/task3/homepage.php");
+                    
+                    header("Location: /Webtech_Spring_25-26_F_Project/Views/task3/homepage.php");
                     exit();
                 }
             }

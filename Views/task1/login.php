@@ -13,7 +13,7 @@
         <p>Sign in to access your account and manage your profile.</p>
     </header>
 
-    <form class="form-card" method="POST" action="../Controllers/task 1/login-controller.php">
+    <form class="form-card" method="POST" action="../Controllers/task1/login-controller.php">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>
@@ -25,7 +25,7 @@
 
     
             <label class="checkbox-label">
-                <input type="checkbox" name="remember">
+                <input type="checkbox" name="remember_me">
                 Remember Me
             </label>
         </div>
@@ -33,7 +33,7 @@
         <button class="button-primary" type="submit" name="login" value="login">Login</button>
 
         <p class="small-text">
-            <a href="../Views/task1/registration.php">Don't have an account? Register here.</a>
+            <a href="../../Views/task1/registration.php">Don't have an account? Register here.</a>
         </p>
     </form>
 </div>

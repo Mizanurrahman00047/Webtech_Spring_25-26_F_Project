@@ -4,9 +4,6 @@
 session_start();
 
 require_once(__DIR__ . '/../../Models/database.php');
-require_once(__DIR__ . '/../../Models/database2.php');
-require_once(__DIR__ . '/../../Models/database3.php');
-require_once(__DIR__ . '/../../Models/database4.php');
 
 if(
     !isset($_SESSION['role'])
@@ -18,6 +15,8 @@ if(
 }
 
 $users = getAllUsers();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +34,7 @@ $users = getAllUsers();
 <h2>All Users</h2>
 
 <p>
-    <a href="../Controllers/task 1/export-users.php" target="_blank">
+    <a href="../Controllers/task1/export-users.php" target="_blank">
         Export all users to JSON
     </a>
 </p>
