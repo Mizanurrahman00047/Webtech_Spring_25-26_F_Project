@@ -1,4 +1,8 @@
 
+<?php
+require_once(__DIR__ . '/../../Controllers/task1/Registration-Controller.php');
+
+?>
 
 <html>
 <head>
@@ -12,7 +16,7 @@
             <p>Create an account to access exclusive content and manage your profile.</p>
         </header>
 
-    <form class="form-card" method="POST" action="../Controllers/task1/Registration-Controller.php">
+    <form class="form-card" method="POST" action="../../Controllers/task1/Registration-Controller.php">
     <div class="form-group">    
     <label for ="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="name"><br><br>
@@ -34,7 +38,7 @@
     </label> <br><br>
     </div>
 
-    <button class="button-primary" type="submit" name = "register" value="sign up">Register</button>
+    <button class="button-primary" type="submit" name = "register" value="register">Register</button>
     <br><br>
     <p class="small-text">
     <a href="../../Views/task1/login.php">Already have an account? Login here.</a>

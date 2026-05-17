@@ -3,7 +3,7 @@
 
 function promoteUser(userId){
 
-    fetch("../Controllers/promote-controller.php", {
+    fetch("../../Controllers/task1/promote-controller.php", {
 
         method: "POST",
         credentials: "same-origin",

@@ -87,7 +87,7 @@ GitHub
 
 </a>
 <br><br>
-<a href="../Views/task1/profile-edit.php">
+<a href="../../Views/task1/profile-edit.php">
     Edit Profile
 </a>
 

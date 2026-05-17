@@ -2,6 +2,12 @@
 <?php
 
 require_once(__DIR__ . '/../database/db.php');
+
+require_once(__DIR__ . '/../Models/database2.php');
+require_once(__DIR__ . '/../Models/database3.php');
+require_once(__DIR__ . '/../Models/database.php');
+
+
 //postcomment
 
 function addComment(

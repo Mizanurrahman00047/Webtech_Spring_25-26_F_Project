@@ -48,7 +48,7 @@ Category Management
 
 <form
 
-action="../Controllers/Add-Category.php"
+action="../../Controllers/task2/category-controller.php"
 
 method="POST"
 

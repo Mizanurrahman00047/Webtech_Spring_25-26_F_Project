@@ -3,6 +3,9 @@
 
 require_once(__DIR__ . '/../database/db.php');
 
+require_once(__DIR__ . '/../Models/database2.php');
+require_once(__DIR__ . '/../Models/database3.php');
+require_once(__DIR__ . '/../Models/database4.php');
 
 function registration(
     $name,
@@ -33,7 +36,7 @@ function registration(
     if($stmt->execute()){
 
         echo "Registration successful";
-        header("Location: ../Views/task1/login.php");
+        header("Location: ../../Views/task1/login.php");
     }
 
     else{
@@ -156,7 +159,7 @@ function updateProfile(
     if($stmt->execute()){
 
         echo "Profile Updated";
-        header("Location: ../Views/task1/author-profile.php");
+        header("Location: ../../Views/task1/author-profile.php");
         exit();
     }
 

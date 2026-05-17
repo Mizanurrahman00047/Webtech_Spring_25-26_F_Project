@@ -76,18 +76,18 @@ if(isset($_POST['login'])){
                 }
                 if ($user['role'] == 'admin'){
                     
-                   header("Location: /Webtech_Spring_25-26_F_Project/Views/task1/admin-users.php");
+                   header("Location: ../../Views/task1/admin-users.php");
                     exit();
                 }
                
                 elseif ($user['role'] == 'author'){
                     
-                    header("Location: /Webtech_Spring_25-26_F_Project/Views/task1/author-profile.php");
+                    header("Location: ../../Views/task2/dashboard.php");
                     exit();
                 }
                 else{
                     
-                    header("Location: /Webtech_Spring_25-26_F_Project/Views/task3/homepage.php");
+                    header("Location: ../../Views/task3/homepage.php");
                     exit();
                 }
             }

@@ -141,7 +141,7 @@ Dismiss
 }
 ?>
 
-<script src="../ajax/script4.js"></script>
+<script src="../../ajax/script4.js"></script>
 
 </body>
 </html>

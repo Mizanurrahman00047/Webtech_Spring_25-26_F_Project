@@ -13,7 +13,7 @@
         <p>Sign in to access your account and manage your profile.</p>
     </header>
 
-    <form class="form-card" method="POST" action="../Controllers/task1/login-controller.php">
+    <form class="form-card" method="POST" action="../../Controllers/task1/login-controller.php">
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required>

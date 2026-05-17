@@ -45,7 +45,7 @@ Tag Management
 
 <form
 
-action="../Controllers/Add-Tag.php"
+action="../../Controllers/task2/tag-controller.php"
 
 method="POST"
 
@@ -83,7 +83,7 @@ echo $row['name'];
 ?>
 
 <a href="
-../Controllers/Delete-Tag.php?id=<?php
+../../Controllers/task2/tag-controller.php?action=delete&id=<?php
 echo $row['id'];
 ?>
 ">

@@ -22,7 +22,7 @@ if(!isset($_SESSION['user_id'])){
 <body>
 
 <form
-action="../Controllers/task1/Profile-Controller.php"
+action="../../Controllers/task1/Profile-Controller.php"
 method="POST"
 enctype="multipart/form-data">
 

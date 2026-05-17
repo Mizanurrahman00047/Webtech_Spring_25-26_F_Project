@@ -25,6 +25,22 @@ $articles = getPublishedArticles();
 
 <body>
 
+<input
+type="text"
+id="searchInput"
+placeholder="Search Articles">
+
+<div
+id="searchResults"
+style="
+border:1px solid black;
+width:300px;
+display:none;
+background:white;
+position:absolute;
+">
+</div>
+
 <h1>Blog & News</h1>
 
 <!-- CATEGORY TABS -->
@@ -72,7 +88,7 @@ width:300px;
 ">
 
 <img
-src="../public/uploads/articles/<?php
+src="../../public/uploads/articles/<?php
 echo $row['featured_image_path'];
 ?>"
 width="250">
@@ -94,7 +110,7 @@ echo $row['title'];
 </h3>
 
 <img
-src="../public/uploads/avatars/<?php
+src="../../public/uploads/avatars/<?php
 echo $row['profile_pic_path'];
 ?>"
 width="40">
@@ -111,21 +127,7 @@ echo $row['created_at'];
 
 <br>
 
-<input
-type="text"
-id="searchInput"
-placeholder="Search Articles">
 
-<div
-id="searchResults"
-style="
-border:1px solid black;
-width:300px;
-display:none;
-background:white;
-position:absolute;
-">
-</div>
 
 
 Category:
@@ -148,7 +150,7 @@ echo $row['like_count'];
 
 </div>
 
-<script src="../ajax/script3.js"></script>
+<script src="../../ajax/script3.js"></script>
 
 
 </body>

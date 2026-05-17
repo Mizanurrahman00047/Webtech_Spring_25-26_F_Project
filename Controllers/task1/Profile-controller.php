@@ -55,7 +55,7 @@ if(isset($_POST['update_profile'])){
                     );
 
                 $destination =
-                    "../public/uploads/avatars/"
+                    "../../public/uploads/avatars/"
                     . $profile_pic_path;
 
                 move_uploaded_file(

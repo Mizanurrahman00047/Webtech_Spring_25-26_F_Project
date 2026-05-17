@@ -36,6 +36,7 @@ Create Article
 
 <body>
 
+
 <h1>
 
 Create Article
@@ -44,7 +45,7 @@ Create Article
 
 <form
 
-action="../Controllers/Create-Article-Controller.php"
+action="../../Controllers/task2/create-article-controller.php"
 
 method="POST"
 
@@ -55,6 +56,8 @@ enctype="multipart/form-data"
 Title
 
 <br>
+
+
 
 <input
 type="text"

@@ -1,7 +1,7 @@
 
 <?php
 
-require_once(__DIR__ . '/../../Controllers/task 2/dashboard-controller.php');
+require_once(__DIR__ . '/../../Controllers/task2/dashboard-controller.php');
 
 ?>
 
@@ -19,6 +19,18 @@ Author Dashboard
 </head>
 
 <body>
+
+<a href="../../Views/task2/create-article.php">
+    Create New Article
+</a>
+<br><br>
+
+<a href="../../Controllers/task2/edit-article-controller.php"> edit article </a>
+
+<br><br>
+<a href="../../Views/task1/author-profile.php">
+author profile
+</a>
 
 <h1>
 
@@ -114,7 +126,7 @@ Toggle Status
 }
 ?>
 
-<script src="../ajax/ajax2.js"></script>
+<script src="../../ajax/ajax2.js"></script>
 
 </body>
 </html>

@@ -41,7 +41,7 @@ Edit Article
 
 <form
 
-action="../Controllers/edit-article-controller.php"
+action="../../Controllers/task2/edit-article-controller.php"
 
 method="POST"
 

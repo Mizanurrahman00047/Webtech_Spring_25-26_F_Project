@@ -1,10 +1,10 @@
 
 <?php
 
-require_once('../Models/database.php');
-require_once('../Models/database2.php');
-require_once('../Models/database3.php');
-require_once('../Models/database4.php');
+require_once(__DIR__ . '/../../Models/database.php');
+require_once(__DIR__ . '/../../Models/database2.php');
+require_once(__DIR__ . '/../../Models/database3.php');
+require_once(__DIR__ . '/../../Models/database4.php');
 
 //add category
 $name =
@@ -15,9 +15,7 @@ if($name != ""){
     addCategory($name);
 }
 
-header(
-"Location: ../Views/categories.php"
-);
+header("Location: ../../Views/task2/categories.php");
 
 
 //delete category
@@ -37,7 +35,7 @@ categoryHasArticle($id)
 deleteCategory($id);
 
 header(
-"Location: ../Views/categories.php"
+"Location: ../../Views/task2/categories.php"
 );
 
 

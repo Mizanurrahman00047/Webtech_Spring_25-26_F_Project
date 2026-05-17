@@ -31,10 +31,19 @@ $users = getAllUsers();
 
 <body>
 
+<a href="../../Views/task2/categories.php">Category Management</a>
+<br><br>
+<a href="../../Views/task2/tags.php">Tag Management</a>
+<br><br>
+<a href="../../Views/task4/admin-moderator.php">Moderation Dashboard</a>
+<br><br>
+
+
+
 <h2>All Users</h2>
 
 <p>
-    <a href="../Controllers/task1/export-users.php" target="_blank">
+    <a href="../../Controllers/task1/export-users.php" target="_blank">
         Export all users to JSON
     </a>
 </p>
@@ -87,7 +96,7 @@ Promote To Author
 }
 ?>
 
-<script src="../ajax/ajax.js"></script>
+<script src="../../ajax/ajax.js"></script>
 
 </body>
 

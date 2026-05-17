@@ -3,6 +3,10 @@
 
 require_once(__DIR__ . '/../database/db.php');
 
+require_once(__DIR__ . '/../Models/database.php');
+require_once(__DIR__ . '/../Models/database3.php');
+require_once(__DIR__ . '/../Models/database4.php');
+
 function getAuthorArticles($author_id){
 
     $connection = connectDatabase();
@@ -219,6 +223,53 @@ function deleteTag($id){
     return $stmt->execute();
 }
 
+function addArticle($author_id, $category_id, $title, $body, $imageName, $status, $publish_at){
+    $connection = connectDatabase();
+    $sql = "INSERT INTO articles 
+            (author_id, category_id, title, body, featured_image_path, status, publish_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("iisssss", $author_id, $category_id, $title, $body, $imageName, $status, $publish_at);
+    $stmt->execute();
+    return $connection->insert_id; // returns new article's ID for tags
+}
+
+function createTagIfNotExists($name){
+    $connection = connectDatabase();
+    $sql = "INSERT IGNORE INTO tags (name) VALUES (?)";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("s", $name);
+    $stmt->execute();
+}
+
+function getTagId($name){
+    $connection = connectDatabase();
+    $sql = "SELECT id FROM tags WHERE name = ?";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("s", $name);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    return $row['id'];
+}
+
+function insertArticleTag($article_id, $tag_id){
+    $connection = connectDatabase();
+    $sql = "INSERT IGNORE INTO article_tags (article_id, tag_id) VALUES (?, ?)";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("ii", $article_id, $tag_id);
+    $stmt->execute();
+}
+
+function updateArticle($id, $title, $body, $imageName, $category_id, $status, $publish_at){
+    $connection = connectDatabase();
+    $sql = "UPDATE articles 
+            SET title=?, body=?, featured_image_path=?, category_id=?, status=?, publish_at=?
+            WHERE id=?";
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param("ssssssi", $title, $body, $imageName, $category_id, $status, $publish_at, $id);
+    $stmt->execute();
+}
 
 
 ?>
