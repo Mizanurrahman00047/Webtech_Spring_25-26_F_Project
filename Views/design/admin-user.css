@@ -1,0 +1,212 @@
+/* =========================
+   ADMIN DASHBOARD DESIGN
+========================= */
+
+:root {
+    --bg: #f4f9ff;
+    --card-bg: #ffffff;
+    --primary: #4da3ff;
+    --primary-hover: #2388f5;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #dbeafe;
+    --shadow: rgba(100, 116, 139, 0.12);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+/* =========================
+   NAVIGATION MENU
+========================= */
+
+.menu {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 18px 25px;
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.menu ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: var(--text-main);
+    background: #eef6ff;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.menu ul li a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(77, 163, 255, 0.3);
+}
+
+/* =========================
+   HEADER SECTION
+========================= */
+
+header.container {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    text-align: center;
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 35px 25px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+h1 {
+    font-size: 38px;
+    color: var(--primary);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+header a {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--primary);
+    color: white;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+header a:hover {
+    background: var(--primary-hover);
+}
+
+/* =========================
+   USER CARD
+========================= */
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto 25px;
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 15px var(--shadow);
+    transition: 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-3px);
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+p {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Role Style */
+[id^="role-"] {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: var(--primary-hover);
+    transform: scale(1.02);
+}
+
+/* Divider */
+hr {
+    border: none;
+    height: 1px;
+    background: #e2e8f0;
+    margin-top: 20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 20px 12px;
+    }
+
+    .menu ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .menu ul li a {
+        display: block;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .container {
+        padding: 22px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+}

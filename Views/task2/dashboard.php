@@ -15,28 +15,32 @@ require_once(__DIR__ . '/../../Controllers/task2/dashboard-controller.php');
 Author Dashboard
 
 </title>
+<link rel="stylesheet" href="../../Views/design/dashboard.css">
 
 </head>
 
 <body>
+<div class="container">
+<nav class="navbar">
+    <ul>
+        <li><a href="../../Views/task2/create-article.php">
+            Create New Article
+        </a></li>
+        <li><a href="../../Controllers/task2/edit-article-controller.php"> edit article </a></li>
 
-<a href="../../Views/task2/create-article.php">
-    Create New Article
-</a>
-<br><br>
+        <li><a href="../../Views/task1/author-profile.php">
+            author profile
+        </a></li>
+    </ul>
+</nav>
 
-<a href="../../Controllers/task2/edit-article-controller.php"> edit article </a>
-
-<br><br>
-<a href="../../Views/task1/author-profile.php">
-author profile
-</a>
-
+<header class="page-header">
 <h1>
 
 My Articles
 
 </h1>
+</header>
 
 <?php
 
@@ -48,13 +52,7 @@ mysqli_fetch_assoc(
 {
 ?>
 
-<div
-
-style="
-border:1px solid black;
-padding:10px;
-margin:10px;
-">
+<div class="article-card">
 
 <h3>
 
@@ -120,6 +118,7 @@ Toggle Status
 
 </button>
 
+</div>
 </div>
 
 <?php

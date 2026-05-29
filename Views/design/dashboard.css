@@ -1,0 +1,189 @@
+
+/* =========================
+   AUTHOR DASHBOARD STYLE
+   White + Light Blue Theme
+========================= */
+
+:root {
+    --bg: #f4f9ff;
+    --card: #ffffff;
+    --primary: #4da3ff;
+    --primary-dark: #2388f5;
+    --text: #1e293b;
+    --muted: #64748b;
+    --border: #dbeafe;
+    --shadow: rgba(0,0,0,0.08);
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    padding: 30px 20px;
+}
+
+/* =========================
+   WRAPPER
+========================= */
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 15px;
+    box-shadow: 0 6px 18px var(--shadow);
+    margin-bottom: 25px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    background: #eef6ff;
+    color: var(--primary);
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+
+.navbar ul li a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.page-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    font-size: 34px;
+    color: var(--primary);
+}
+
+/* =========================
+   ARTICLE CARD
+========================= */
+
+.article-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px var(--shadow);
+    transition: 0.3s;
+}
+
+.article-card:hover {
+    transform: translateY(-3px);
+}
+
+/* TITLE */
+.article-card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: var(--text);
+}
+
+/* TEXT */
+.article-card p {
+    margin: 6px 0;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* STATUS */
+.article-card span {
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* =========================
+   BUTTONS / LINKS
+========================= */
+
+.article-card a {
+    display: inline-block;
+    margin-top: 12px;
+    margin-right: 10px;
+    padding: 10px 16px;
+    background: #eef6ff;
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.article-card a:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* BUTTON */
+.article-card button {
+    margin-top: 12px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.article-card button:hover {
+    background: var(--primary-dark);
+    transform: scale(1.03);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .page-header h1 {
+        font-size: 26px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .article-card {
+        padding: 18px;
+    }
+}

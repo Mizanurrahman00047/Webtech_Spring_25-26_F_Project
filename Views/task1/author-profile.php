@@ -40,19 +40,21 @@ $github = isset($social['github'])
 <head>
 
     <title>Author Profile</title>
-    <link rel="stylesheet" href="../design/design.css">
+    <link rel="stylesheet" href="../../Views/design/author-profile.css">
 
 </head>
 
 <body>
+<div class="container">
 
+ 
 <?php
 
 if(!empty($user['profile_pic_path'])){
 ?>
 
 <img
-src="../public/uploads/avatars/<?php
+src="../../public/uploads/avatars/<?php
 echo $user['profile_pic_path'];
 ?>"
 width="150">
@@ -60,7 +62,7 @@ width="150">
 <?php
 }
 ?>
-
+<div class="profile-content">
 <h2>
 
 <?php echo $user['name']; ?>
@@ -73,6 +75,7 @@ width="150">
 
 </p>
 
+<div class="social-links">
 <a href="<?php echo $twitter; ?>">
 
 Twitter
@@ -86,11 +89,17 @@ Twitter
 GitHub
 
 </a>
+
+</div>
+
 <br><br>
-<a href="../../Views/task1/profile-edit.php">
+
+<a class="edit-btn" href="../../Views/task1/profile-edit.php">
     Edit Profile
 </a>
+</div>
 
+</div>
 </body>
 
 </html>

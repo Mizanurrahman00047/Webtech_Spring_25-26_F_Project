@@ -25,35 +25,37 @@ $users = getAllUsers();
 <head>
 
     <title>Admin Users</title>
-    <link rel="stylesheet" href="../Views/design/design.css">
+    <link rel="stylesheet" href="../../Views/design/admin-user.css">
 
 </head>
 
 <body>
-
-<a href="../../Views/task2/categories.php">Category Management</a>
+<nav class="menu">
+    <ul>
+        <li><a href="../../Views/task2/categories.php">Category Management</a></li>
+        <li><a href="../../Views/task2/tags.php">Tag Management</a></li>
+        <li><a href="../../Views/task4/admin-moderator.php">Moderation Dashboard</a></li>
+    </ul>
 <br><br>
-<a href="../../Views/task2/tags.php">Tag Management</a>
-<br><br>
-<a href="../../Views/task4/admin-moderator.php">Moderation Dashboard</a>
-<br><br>
+</nav>
 
-
-
-<h2>All Users</h2>
+<header class="container">
+<h1>All Users</h1>
 
 <p>
     <a href="../../Controllers/task1/export-users.php" target="_blank">
         Export all users to JSON
     </a>
 </p>
-
+</header>
 <?php
 
 while($user = $users->fetch_assoc()){
 ?>
 
-<div>
+<div class="container">
+    <h3>
+        ID: <?php echo $user['id']; ?>
 
     <h3>
         <?php echo $user['name']; ?>
