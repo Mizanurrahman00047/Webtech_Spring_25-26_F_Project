@@ -11,9 +11,21 @@ function loadArticles(categoryId) {
     }
 
     fetch(url)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
         .then(data => {
-            document.getElementById('articleGrid').innerHTML = data;
+            let articleGrid = document.getElementById('articleGrid');
+            if (articleGrid) {
+                articleGrid.innerHTML = data;
+            }
+        })
+        .catch(error => {
+            console.error('Error loading articles:', error);
+            alert('Failed to load articles. Please try again.');
         });
 }
 
@@ -35,6 +47,8 @@ if (searchInput) {
         timer = setTimeout(() => {
 
             let resultsDiv = document.getElementById('searchResults');
+
+            if (!resultsDiv) return; // NULL CHECK - if element doesn't exist, exit early
 
             if (query.length == 0) {
                 resultsDiv.style.display = 'none';

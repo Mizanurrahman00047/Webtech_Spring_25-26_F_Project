@@ -5,9 +5,9 @@ header(
     "Content-Type: application/json"
 );
 
-require_once('../Models/database.php');
-require_once('../Models/database2.php');
-require_once('../Models/database3.php');
+require_once('../../Models/database.php');
+require_once('../../Models/database2.php');
+require_once('../../Models/database3.php');
 require_once('../Models/database4.php');
 
 if(!isset($_GET['q'])){

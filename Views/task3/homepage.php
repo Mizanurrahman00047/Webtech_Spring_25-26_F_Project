@@ -1,157 +1,53 @@
 
-<?php
-
-session_start();
-
-require_once(__DIR__ . '/../../Models/database.php');
-require_once(__DIR__ . '/../../Models/database2.php');
-require_once(__DIR__ . '/../../Models/database3.php');
-require_once(__DIR__ . '/../../Models/database4.php');
-
-publish_scheduled();
-
-$categories = getAllCategories();
-
-$articles = getPublishedArticles();
-
-?>
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Homepage</title>
+    <link rel="stylesheet" href="../../Views/design/homepage.css">
 </head>
 
 <body>
 
-<input
-type="text"
-id="searchInput"
-placeholder="Search Articles">
+<div class="container">
 
-<div
-id="searchResults"
-style="
-border:1px solid black;
-width:300px;
-display:none;
-background:white;
-position:absolute;
-">
-</div>
+    <!-- SEARCH -->
+    <input type="text" id="searchInput" placeholder="Search Articles">
+    <div id="searchResults" style="display: none; border: 1px solid #ccc; padding: 10px; margin-top: 5px;"></div>
 
-<h1>Blog & News</h1>
+    <header>
+        <h1>Blog & News</h1>
+    </header>
 
-<!-- CATEGORY TABS -->
+    <!-- CATEGORY FILTER -->
+    <div id="categories">
+        <button onclick="loadArticles('all')">All</button>
 
-<div id="categories">
+        <?php 
+        require_once(__DIR__ . '/../../Controllers/task3/homepage-controller.php');
+        while($category = mysqli_fetch_assoc($category_id)) { ?>
+            <button onclick="loadArticles('<?php echo $category['id']; ?>')">
+                <?php echo $category['name']; ?>
+            </button>
+        <?php } ?>
+    </div>
 
-<button onclick="loadArticles('all')">
-    All
-</button>
+    <hr>
 
-<?php
-while($category = mysqli_fetch_assoc($categories)){
-?>
-
-<button
-onclick="loadArticles(
-'<?php echo $category['id']; ?>'
-)">
-    <?php echo $category['name']; ?>
-</button>
-
-<?php
-}
-?>
-
-</div>
-
-<hr>
-
-<!-- ARTICLE GRID -->
-
-<div id="articleGrid">
-
-<?php
-
-while($row = mysqli_fetch_assoc($articles)){
-?>
-
-<div
-style="
-border:1px solid black;
-padding:10px;
-margin:10px;
-width:300px;
-">
-
-<img
-src="../../public/uploads/articles/<?php
-echo $row['featured_image_path'];
-?>"
-width="250">
-
-<h3>
-
-<a href="
-article.php?id=<?php
-echo $row['id'];
-?>
-">
-
-<?php
-echo $row['title'];
-?>
-
-</a>
-
-</h3>
-
-<img
-src="../../public/uploads/avatars/<?php
-echo $row['profile_pic_path'];
-?>"
-width="40">
-
-<?php
-echo $row['author_name'];
-?>
-
-<br>
-
-<?php
-echo $row['created_at'];
-?>
-
-<br>
-
-
-
-
-Category:
-<?php
-echo $row['category_name'];
-?>
-
-<br>
-
-Likes:
-<?php
-echo $row['like_count'];
-?>
-
-</div>
-
-<?php
-}
-?>
+    <!-- ARTICLES -->
+    <div id="articleGrid">
+        <!-- Articles will be loaded here via JavaScript -->
+    </div>
 
 </div>
 
 <script src="../../ajax/script3.js"></script>
 
+<script>
+// Load all articles when page first loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadArticles('all');
+});
+</script>
 
 </body>
 </html>

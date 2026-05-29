@@ -1,10 +1,13 @@
 
 <?php
 
-require_once('../Models/database.php');
-require_once('../Models/database2.php');
-require_once('../Models/database3.php');
-require_once('../Models/database4.php');
+require_once('../../Models/database.php');
+require_once('../../Models/database2.php');
+require_once('../../Models/database3.php');
+require_once('../../Models/database4.php');
+
+// Fetch all categories for the filter dropdown
+$category_id = getAllCategories();
 
 if(
     isset($_GET['category_id'])
@@ -22,76 +25,37 @@ else{
     getPublishedArticles();
 }
 
-while(
-    $row =
-    mysqli_fetch_assoc(
-        $articles
-    )
-){
-?>
+// Always output articles as HTML (for both initial page load and AJAX calls)
+while($row = mysqli_fetch_assoc($articles)){
+    ?>
 
-<div
-style="
-border:1px solid black;
-padding:10px;
-margin:10px;
-width:300px;
-">
+    <div class="article-card">
 
-<img
-src="../public/uploads/articles/<?php
-echo $row['featured_image_path'];
-?>"
-width="250">
+        <div class="article-image">
+            <img src="../../public/uploads/articles/<?php echo $row['featured_image_path']; ?>">
+        </div>
 
-<h3>
+        <h3>
+            <a href="article.php?id=<?php echo $row['id']; ?>">
+                <?php echo $row['title']; ?>
+            </a>
+        </h3>
 
-<a href="
-article.php?id=<?php
-echo $row['id'];
-?>
-">
+        <div class="article-meta">
+            <img src="../../public/uploads/avatars/<?php echo $row['profile_pic_path']; ?>">
+            <span><?php echo $row['author_name']; ?></span>
+        </div>
 
-<?php
-echo $row['title'];
-?>
+        <p><?php echo $row['created_at']; ?></p>
 
-</a>
+        <span class="category">
+            <?php echo $row['category_name']; ?>
+        </span>
 
-</h3>
+        <p>❤️ Likes: <?php echo $row['like_count']; ?></p>
 
-<img
-src="../public/uploads/avatars/<?php
-echo $row['profile_pic_path'];
-?>"
-width="40">
+    </div>
 
-<?php
-echo $row['author_name'];
-?>
-
-<br>
-
-<?php
-echo $row['created_at'];
-?>
-
-<br>
-
-Category:
-<?php
-echo $row['category_name'];
-?>
-
-<br>
-
-Likes:
-<?php
-echo $row['like_count'];
-?>
-
-</div>
-
-<?php
-}
+    <?php
+    }
 ?>
