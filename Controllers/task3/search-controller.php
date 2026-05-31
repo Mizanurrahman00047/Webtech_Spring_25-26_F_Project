@@ -8,7 +8,7 @@ header(
 require_once('../../Models/database.php');
 require_once('../../Models/database2.php');
 require_once('../../Models/database3.php');
-require_once('../Models/database4.php');
+require_once('../../Models/database4.php');
 
 if(!isset($_GET['q'])){
 
@@ -21,18 +21,15 @@ $q = $_GET['q'];
 
 $result = searchArticles($q);
 
-$data = [];
+ $data = [];
 
-while(
-    $row =
-    mysqli_fetch_assoc($result)
-){
+while($row = mysqli_fetch_assoc($result)){
 
     $data[] = [
-
         "id" => $row['id'],
-
-        "title" => $row['title']
+        "title" => $row['title'],
+        "author" => isset($row['author_name']) ? $row['author_name'] : null,
+        "category" => isset($row['category_name']) ? $row['category_name'] : null
     ];
 }
 

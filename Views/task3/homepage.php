@@ -20,10 +20,12 @@
 
     <!-- CATEGORY FILTER -->
     <div id="categories">
-        <button onclick="loadArticles('all')">All</button>
-
+       
+    <button onclick="loadArticles('all')">All</button>
+        
         <?php 
-        require_once(__DIR__ . '/../../Controllers/task3/homepage-controller.php');
+        require_once(__DIR__ . '/../../Models/database2.php');
+        $category_id = getAllCategories();
         while($category = mysqli_fetch_assoc($category_id)) { ?>
             <button onclick="loadArticles('<?php echo $category['id']; ?>')">
                 <?php echo $category['name']; ?>

@@ -112,7 +112,7 @@ Views: <?php echo $article['view_count']; ?>
     <textarea id="commentBody" placeholder="Write a comment..."></textarea>
     <br>
     <!-- data-article attribute passes article ID to script3.js without PHP in JS -->
-    <button id="commentBtn" data-article="<?php echo $article['id']; ?>">
+    <button type="button" id="commentBtn" data-article="<?php echo $article['id']; ?>" style="cursor: pointer; padding: 10px 20px;" onclick="postCommentClick()">
         Post Comment
     </button>
 

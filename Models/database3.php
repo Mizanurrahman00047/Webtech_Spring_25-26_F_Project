@@ -83,7 +83,9 @@ function searchArticles($q){
     $q = '%' . $q . '%';
     $sql = "SELECT DISTINCT
             articles.id,
-            articles.title
+            articles.title,
+            user_info.name AS author_name,
+            categories.name AS category_name
 
             FROM articles
 
@@ -93,19 +95,27 @@ function searchArticles($q){
             LEFT JOIN tags
             ON article_tags.tag_id = tags.id
 
+            LEFT JOIN user_info
+            ON articles.author_id = user_info.id
+
+            LEFT JOIN categories
+            ON articles.category_id = categories.id
+
             WHERE articles.status='published'
 
-            AND
-            (
-                articles.title LIKE ?
-                OR
-                tags.name LIKE ?
+            AND (
+                CAST(articles.id AS CHAR) LIKE ?
+                OR articles.title LIKE ?
+                OR articles.body LIKE ?
+                OR tags.name LIKE ?
+                OR categories.name LIKE ?
+                OR user_info.name LIKE ?
             )
 
             LIMIT 8";
 
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param("ss", $q, $q);
+    $stmt->bind_param("ssssss", $q, $q, $q, $q, $q, $q);
     $stmt->execute();
     return $stmt->get_result();
 }
